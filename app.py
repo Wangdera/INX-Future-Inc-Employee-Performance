@@ -2,7 +2,8 @@ import streamlit as st
 import pandas as pd
 import pickle
 import numpy as np
-from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import LabelEncoder
 
 # Load Model, Scaler, and Encoders
 with open("best_xgb.pkl", "rb") as f:
