@@ -25,7 +25,7 @@ category_mappings = {
 }
 
 # Streamlit App Title
-st.title("Employee Performance Prediction")
+st.title("INX Future Inc. Employee Performance Prediction")
 st.write("Enter employee details to predict performance.")
 
 # Input Fields for Features
@@ -122,5 +122,10 @@ input_data = input_data[model.feature_names_in_]
 # Predict Performance
 if st.button("Predict Performance"):
     prediction = model.predict(input_data)
-    performance_label = "High Performer" if prediction[0] == 1 else "Low Performer"
+    st.write(f"Raw Model Prediction: {prediction[0]}")  # Debugging
+
+    performance_rating_map = {1: "Low", 2: "Good", 3: "Excellent", 4: "Outstanding"}
+    performance_label = performance_rating_map.get(prediction[0], "Unknown")
+    
     st.success(f"Predicted Performance: {performance_label}")
+
